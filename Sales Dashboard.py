@@ -25,3 +25,12 @@ print(sales)
 sales_indexed =sales.set_index('Product')
 print("\nDataframe Indexed by Product")
 print(sales_indexed)
+
+# Grouping the data by Product
+grouped = sales.groupby('Product').agg(
+   Total_Quantity=('Quantity', 'sum'),
+    Total_Revenue=('Revenue', 'sum'),
+    Average_Revenue=('Revenue', 'mean') 
+)
+print("\nSummary of Sales Data Grouped by Product:")
+print(grouped)
